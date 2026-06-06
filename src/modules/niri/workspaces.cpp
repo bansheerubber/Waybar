@@ -82,11 +82,6 @@ void Workspaces::doUpdate() {
       style_context->remove_class("current_output");
     }
 
-    if (ws["active_window_id"].isNull())
-      style_context->add_class("empty");
-    else
-      style_context->remove_class("empty");
-
     std::string name;
     if (ws["name"]) {
       name = ws["name"].asString();
@@ -122,6 +117,16 @@ void Workspaces::doUpdate() {
     } else {
       button.show();
     }
+
+    // if (config_["current-only"].asBool()) {
+    //   const auto* property = alloutputs ? "is_focused" : "is_active";
+    //   if (ws[property].asBool())
+    //     button.show();
+    //   else
+    //     button.hide();
+    // } else {
+    //   button.show();
+    // }
   }
 
   // Refresh the button order.

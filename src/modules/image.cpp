@@ -64,8 +64,7 @@ auto waybar::modules::Image::update() -> void {
   if (Glib::file_test(path_, Glib::FILE_TEST_EXISTS)) {
     Glib::RefPtr<Gdk::Pixbuf> pixbuf;
 
-    int scaled_icon_size = size_ * image_.get_scale_factor();
-    pixbuf = Gdk::Pixbuf::create_from_file(path_, scaled_icon_size, scaled_icon_size);
+    pixbuf = Gdk::Pixbuf::create_from_file(path_);
 
     auto surface = Gdk::Cairo::create_surface_from_pixbuf(pixbuf, image_.get_scale_factor(),
                                                           image_.get_window());
