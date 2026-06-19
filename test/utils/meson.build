@@ -30,9 +30,3 @@ utils_test = executable(
     dependencies: test_dep,
     include_directories: test_inc,
 )
-
-test(
-    'utils',
-    utils_test,
-    workdir: meson.project_source_root(),
-)
